@@ -37,9 +37,9 @@ def handle_parsed_args(parsed):
     if parsed.debug:
         parsed.verbose = max(parsed.verbose, 2)
     if parsed.verbose > 1:
-        logging.getLogger("notpip").setLevel(logging.DEBUG)
+        logging.getLogger("pipenv.patched.notpip").setLevel(logging.DEBUG)
     elif parsed.verbose > 0:
-        logging.getLogger("notpip").setLevel(logging.INFO)
+        logging.getLogger("pipenv.patched.notpip").setLevel(logging.INFO)
     if "PIPENV_PACKAGES" in os.environ:
         parsed.packages += os.environ.get("PIPENV_PACKAGES", "").strip().split("\n")
     return parsed
